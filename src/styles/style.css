@@ -1,0 +1,7 @@
+.div {
+    display: flex;
+    justify-content: space-between;
+}
+.user-block{
+    margin-right: 15px;
+}
