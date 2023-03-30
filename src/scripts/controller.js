@@ -1,4 +1,3 @@
-"use strict"
 export const Controller = class ControllerClass {
     constructor(addedView) {
         this.view = addedView;
@@ -9,18 +8,28 @@ export const Controller = class ControllerClass {
         }
     }
 
-    renderUsers (arr) {
+    renderUsers (arr, n) {
         let result = ``
         arr.forEach(element => {
-            result += `
-            <span class="user-block">
-                <h2 class="user-name">${element.name}</h2>
-                <h2 class="user-email">${element.email}</h2>
-                <h2 class="user-phone">${element.phone}</h2>
-                <h2 class="user-username">${element.username}</h2>
-                <h2 class="user-website">${element.website}</h2>
-            </span>
-            `
+            if (+element.id >= n && +element.id <= n + 9) {
+                result += `
+                <span class="user-block" id="${element.id}">
+                    <h2 class="user-name">${element.title}</h2>
+                    <p class="user-email">${element.body}</p>
+                    <h4>written by ${element.userId}</h4>
+                </span>
+                `
+            } else if (n == undefined) {
+                if (+element.id <= 10) {
+                    result += `
+                    <span class="user-block" id="${element.id}">
+                        <h2 class="user-name">${element.title}</h2>
+                        <p class="user-email">${element.body}</p>
+                        <h4>written by ${element.userId}</h4>
+                    </span>
+                    `
+                }
+            }
         });
         return result
     }
