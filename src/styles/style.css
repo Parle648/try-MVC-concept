@@ -9,7 +9,8 @@
     width: 700px;
     align-items: center;
 }
-.user-block{
+.user-block,
+.post-block{
     margin-right: 15px;
     padding: 15px 20px;
     border: 1px solid #ccc;
@@ -44,6 +45,11 @@
 }
 .return-posts{
     margin: 15px 0px 20px;
+}
+
+.post-block{
+    margin-top: 30px;
+    border-color: rgb(114, 12, 255);
 }
 
 .display{

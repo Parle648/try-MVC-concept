@@ -33,4 +33,20 @@ export const Controller = class ControllerClass {
         });
         return result
     }
+
+    renderComments (comments) {
+        let result = `
+            <h2>Comments</h2>
+        `;
+        comments.forEach((comment) => {
+            result += `
+            <div class="post-block" id="${comment.id}">
+                <h5 class="post-name">${comment.name}</h5>
+                <h6 class="post-email">${comment.email}</h6>
+                <p class="post-email">${comment.body}</p>
+            </div>
+            `
+        })
+        return result;
+    }
 }
