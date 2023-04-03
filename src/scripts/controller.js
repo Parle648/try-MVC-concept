@@ -16,7 +16,7 @@ export const Controller = class ControllerClass {
                 <span class="user-block" id="${element.id}">
                     <h2 class="user-name">${element.title}</h2>
                     <p class="user-email">${element.body}</p>
-                    <h4>written by ${element.userId}</h4>
+                    <h4>written by <h4 class="user">${element.userId}</h4></h4>
                 </span>
                 `
             } else if (n == undefined) {
@@ -25,7 +25,7 @@ export const Controller = class ControllerClass {
                     <span class="user-block" id="${element.id}">
                         <h2 class="user-name">${element.title}</h2>
                         <p class="user-email">${element.body}</p>
-                        <h4>written by ${element.userId}</h4>
+                        <h4>written by <h4 class="user">${element.userId}</h4></h4>
                     </span>
                     `
                 }
@@ -48,5 +48,21 @@ export const Controller = class ControllerClass {
             `
         })
         return result;
+    }
+
+    renderUserPosts (data, user) {
+        const writerPosts = data.filter((item) => item.userId == user)
+        let result = `
+            <h2>Posts from ${user} </h2>
+        `;
+        writerPosts.forEach((post) => {
+            result += `
+                <span class="user-block" id="${post.id}">
+                    <h2 class="user-name">${post.title}</h2>
+                    <p class="user-email">${post.body}</p>
+                </span>
+            `
+        })
+        return result
     }
 }
